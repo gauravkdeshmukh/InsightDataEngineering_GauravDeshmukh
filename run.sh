@@ -13,8 +13,8 @@ g++ -o Wordcount ./src/wordcount.cpp
 chmod +x Wordcount
 
 # finally I'll execute my programs, with the input directory wc_input and output the files in the directory wc_output
-./Wordcount ./wc_input ./wc_output/wc_result.txt
-python my_running_median.py ./wc_input ./wc_output/med_result.txt
+./Wordcount ./wc_input/test.txt ./wc_output/wc_result.txt
+#python my_running_median.py ./wc_input ./wc_output/med_result.txt
 
 
 
