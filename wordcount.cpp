@@ -48,7 +48,7 @@ void countWords(std::istream &in, lookuptable& words)
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)
+    if (argc < 3)
 		return (EXIT_FAILURE);
     
     /*Read file from ifstream, input file is given as argument*/
@@ -61,12 +61,19 @@ int main(int argc, char **argv)
      countWords(in, wordmap);
      
      /*open a output file using ofstream*/
-     ofstream outputfile ("wc_result.txt");
-     
+     std::ofstream out(argv[2]);
+     if (out.is_open())
+     {
      /*iterate through word map and print the count*/
      for (lookuptable::iterator i = wordmap.begin();
 			i != wordmap.end(); ++i) {
-        outputfile << i->first << "\t\t " << i->second << "\n";
+        out << i->first << "\t\t " << i->second << "\n";
       }
+     }
+     else
+        {
+		 cout << "Unable to open outputfile";	
+         exit(EXIT_FAILURE);
+		}
 	return 0;
 }
